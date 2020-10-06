@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/container';
 import Navigation from './Navigation';
 import Main from './pages/Main';
-import Latest from './pages/Latest';
+import Latest from './pages/latest/Latest';
 import Products from './pages/products/Products';
 import Cart from './pages/Cart';
 import Login from './pages/login/Login';
