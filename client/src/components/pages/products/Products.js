@@ -1,4 +1,5 @@
 import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import CardDeck from 'react-bootstrap/CardDeck';
@@ -6,6 +7,7 @@ import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/button';
 import categories from './catDummy';
 import './Products.css';
+
 
 const Products = () => {
   return (
@@ -19,7 +21,9 @@ const Products = () => {
                 <Card.Img className='p-2' variant='top' src={image} />
                 <Card.Body className='d-flex flex-column justify-content-end'>
                   <Card.Title className='text-center'>{title}</Card.Title>
-                  <Button variant='secondary'>See more</Button>
+                  <LinkContainer to={`/category/${id}`}>
+                    <Button>See More</Button>
+                  </LinkContainer>
                 </Card.Body>
               </Card>
             </Col>
