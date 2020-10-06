@@ -6,7 +6,7 @@ import Main from './pages/Main';
 import Latest from './pages/Latest';
 import Products from './pages/products/Products';
 import Cart from './pages/Cart';
-import Login from './pages/Login';
+import Login from './pages/login/Login';
 
 const App = () => {
   return (
