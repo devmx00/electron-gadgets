@@ -5,7 +5,7 @@ import Navigation from './Navigation';
 import Main from './pages/Main';
 import Latest from './pages/latest/Latest';
 import Products from './pages/products/Products';
-import Cart from './pages/Cart';
+import Cart from './pages/cart/Cart';
 import Login from './pages/login/Login';
 
 const App = () => {

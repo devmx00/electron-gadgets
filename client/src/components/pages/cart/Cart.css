@@ -1,0 +1,4 @@
+.img-fluid.img-size {
+  object-fit: scale-down;
+  height: 8rem;
+}
