@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/container';
-import Navigation from './Navigation';
-import Main from './pages/Main';
+import Navigation from './components/Navigation';
+import Main from './pages/main/Main';
 import Latest from './pages/latest/Latest';
 import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
