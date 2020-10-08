@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Navigation = () => {
+const Navigation = ({ totalItems }) => {
   return (
     <div>
       <Navbar bg='light' expand='lg'>
@@ -37,7 +38,7 @@ const Navigation = () => {
             </Nav>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/cart'>
-                Cart
+                Cart ({totalItems})
               </Nav.Link>
               <Nav.Link as={Link} to='/login'>
                 Sign In
@@ -50,4 +51,8 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = ({ cart }) => ({
+  totalItems: cart.totalItems,
+});
+
+export default connect(mapStateToProps)(Navigation);

@@ -38,7 +38,7 @@ const CartItem = ({ product, removeItem }) => {
           md={3}
           className='d-flex flex-column justify-content-center'
         >
-          <Button onClick={() => removeItem(product.id)}>Remove</Button>
+          <Button onClick={() => removeItem(product)}>Remove</Button>
         </Col>
       </Row>
     </Fragment>

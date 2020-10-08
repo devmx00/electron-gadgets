@@ -1,6 +1,6 @@
 import { ADD_ITEM, REMOVE_ITEM } from '../actions/types';
 
-const INITIAL_STATE = { products: [] };
+const INITIAL_STATE = { products: [], totalItems: 0 };
 
 export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
@@ -18,17 +18,20 @@ export default (state = INITIAL_STATE, action) => {
               ? { ...product, qty: product.qty + 1 }
               : product
           ),
+          totalItems: state.totalItems + 1,
         };
       }
       return {
         ...state,
         products: [...state.products, { ...payload, qty: 1 }],
+        totalItems: state.totalItems + 1,
       };
 
     case REMOVE_ITEM:
       return {
         ...state,
-        products: state.products.filter((product) => product.id !== payload),
+        products: state.products.filter((product) => product.id !== payload.id),
+        totalItems: state.totalItems - payload.qty,
       };
     default:
       return state;
