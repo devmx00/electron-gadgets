@@ -13,9 +13,10 @@ const Cart = ({ cartItems, cartTotal }) => {
       <Container>
         <Row>
           <Col sm={9}>
-            {cartItems.map((product) => (
-              <CartItem key={product.id} product={product} />
-            ))}
+            {cartItems &&
+              cartItems.map((product) => (
+                <CartItem key={product.id} product={product} />
+              ))}
           </Col>
           <Col sm={3} className='my-3'>
             <div>
@@ -34,7 +35,11 @@ const Cart = ({ cartItems, cartTotal }) => {
 
 const mapStateToProps = ({ cart }) => ({
   cartItems: cart.products,
-  cartTotal: 0
+  cartTotal: cart.products.reduce(
+    (total, sub) =>
+      total + sub.qty * sub.price.replace(/,/g, ''),
+    0
+  ),
 });
 
 export default connect(mapStateToProps)(Cart);

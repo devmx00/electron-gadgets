@@ -28,8 +28,10 @@ const CartItem = ({ product, removeItem }) => {
           md={2}
           className='d-flex flex-column justify-content-center'
         >
-          <span>Qty: 1</span>
-          <span>Subtotal: ${product.price}</span>
+          <span>Qty: {product.qty}</span>
+          <span>
+            Subtotal: ${product.qty * product.price.replace(/,/g, '')}
+          </span>
         </Col>
         <Col
           sm={6}
