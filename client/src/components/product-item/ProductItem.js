@@ -10,11 +10,11 @@ import './ProductItem.css';
 const ProductItem = ({ product }) => {
   return (
     <Row className='border-bottom p-3'>
-      <Col xs={12} sm={3} className="text-center">
+      <Col xs={12} sm={3} className='text-center'>
         <Image className='img-fluid img-size' src={product.img} />
       </Col>
       <Col xs={12} sm={6} className='py-2'>
-        <Link to='/'>
+        <Link to={`/product/${product.id}`}>
           <h4>{product.title}</h4>
         </Link>
       </Col>
