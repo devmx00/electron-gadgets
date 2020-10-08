@@ -2,11 +2,27 @@ import React, { Fragment } from 'react';
 import Container from 'react-bootstrap/container';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
-import ListGroup from 'react-bootstrap/listgroup';
 import Button from 'react-bootstrap/button';
 import Image from 'react-bootstrap/image';
+import CartItem from '../../components/cart-item/CartItem';
 
-import './Cart.css';
+const items = [
+  {
+    id: 1,
+    title: 'ITEM 1',
+    price: '729.00',
+  },
+  {
+    id: 2,
+    title: 'ITEM 2',
+    price: '123.00',
+  },
+  {
+    id: 3,
+    title: 'ITEM 3',
+    price: '359.00',
+  },
+];
 
 const Cart = () => {
   return (
@@ -15,117 +31,11 @@ const Cart = () => {
       <Container>
         <Row>
           <Col sm={9}>
-            <Row className='border-bottom py-3'>
-              <Col sm={6} md={2}>
-                <Image className='img-fluid img-size' src='img/ps-5.png' />
-              </Col>
-              <Col
-                sm={6}
-                md={5}
-                className='d-flex flex-column justify-content-center'
-              >
-                Sony PlayStation 5 - DISC Edition
-              </Col>
-              <Col
-                sm={6}
-                md={2}
-                className='d-flex flex-column justify-content-center'
-              >
-                <span>Qty: 1</span>
-                <span>Subtotal: $729.00</span>
-              </Col>
-              <Col
-                sm={6}
-                md={3}
-                className='d-flex flex-column justify-content-center'
-              >
-                <Button>Remove</Button>
-              </Col>
-            </Row>
-            <Row className='border-bottom py-3'>
-              <Col sm={6} md={2}>
-                <Image className='img-fluid img-size' src='img/ps-5.png' />
-              </Col>
-              <Col
-                sm={6}
-                md={5}
-                className='d-flex flex-column justify-content-center'
-              >
-                Sony PlayStation 5 - DISC Edition
-              </Col>
-              <Col
-                sm={6}
-                md={2}
-                className='d-flex flex-column justify-content-center'
-              >
-                <span>Qty: 1</span>
-                <span>Subtotal: $729.00</span>
-              </Col>
-              <Col
-                sm={6}
-                md={3}
-                className='d-flex flex-column justify-content-center'
-              >
-                <Button>Remove</Button>
-              </Col>
-            </Row>
-            <Row className='border-bottom py-3'>
-              <Col sm={6} md={2}>
-                <Image className='img-fluid img-size' src='img/ps-5.png' />
-              </Col>
-              <Col
-                sm={6}
-                md={5}
-                className='d-flex flex-column justify-content-center'
-              >
-                Sony PlayStation 5 - DISC Edition
-              </Col>
-              <Col
-                sm={6}
-                md={2}
-                className='d-flex flex-column justify-content-center'
-              >
-                <span>Qty: 1</span>
-                <span>Subtotal: $729.00</span>
-              </Col>
-              <Col
-                sm={6}
-                md={3}
-                className='d-flex flex-column justify-content-center'
-              >
-                <Button>Remove</Button>
-              </Col>
-            </Row>
-            <Row className='border-bottom py-3'>
-              <Col sm={6} md={2}>
-                <Image className='img-fluid img-size' src='img/ps-5.png' />
-              </Col>
-              <Col
-                sm={6}
-                md={5}
-                className='d-flex flex-column justify-content-center'
-              >
-                Sony PlayStation 5 - DISC Edition
-              </Col>
-              <Col
-                sm={6}
-                md={2}
-                className='d-flex flex-column justify-content-center'
-              >
-                <span>Qty: 1</span>
-                <span>Subtotal: $729.00</span>
-              </Col>
-              <Col
-                sm={6}
-                md={3}
-                className='d-flex flex-column justify-content-center'
-              >
-                <Button>Remove</Button>
-              </Col>
-            </Row>
+            {items.map((product) => (
+              <CartItem key={product.id} product={product} />
+            ))}
           </Col>
-
-          <Col sm={3} className="my-3">
+          <Col sm={3} className='my-3'>
             <div>
               <h3>Summary</h3>
             </div>
