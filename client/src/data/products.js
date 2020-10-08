@@ -10,7 +10,7 @@
 // dateAdded
 // =====================
 
-export default () => [
+const products = [
   {
     id: '1',
     img: '/img/airpods.jpeg',
@@ -60,7 +60,7 @@ export default () => [
   },
   {
     id: '4',
-    img: '/img/xps-13',
+    img: '/img/xps-13.png',
     title: 'Dell XPS 13',
     about: [
       'Precision cut from a block of aluminum in two pieces so there is no variability in construction.',
@@ -76,7 +76,7 @@ export default () => [
   },
   {
     id: '5',
-    img: '/img/razer-13',
+    img: '/img/razer-13.png',
     title: 'Razer Blade Stealth 13',
     about: [
       'Blaze through games and content creation: NVIDIA GeForce GTX 1650 Ti Max-Q 4GB VRAM graphics, Quad-Core 10th Gen Intel Core i7-1065G7 Processor, and 16GB dual-channel memory.',
@@ -91,3 +91,5 @@ export default () => [
     dateAdded: '07-10-2020',
   },
 ];
+
+export default products;
