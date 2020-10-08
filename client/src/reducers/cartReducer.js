@@ -36,7 +36,7 @@ export default (state = INITIAL_STATE, action) => {
               : { ...product, qty: product.qty - 1 }
             : product
         ),
-        totalItems: state.totalItems - 1,
+        totalItems: payload.qty === 1 ? state.totalItems : state.totalItems - 1,
       };
     case REMOVE_ITEM:
       return {
