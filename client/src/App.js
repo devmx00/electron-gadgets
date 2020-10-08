@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import Container from 'react-bootstrap/container';
 import Navigation from './components/Navigation';
+
+import store from './store';
 import Main from './pages/main/Main';
 import Latest from './pages/latest/Latest';
 import Products from './pages/products/Products';
@@ -14,7 +17,7 @@ import Login from './pages/login/Login';
 
 const App = () => {
   return (
-    <div>
+    <Provider store={store}>
       <BrowserRouter>
         <Navigation />
         <Container>
@@ -29,7 +32,7 @@ const App = () => {
           <Route path='/login' component={Login} />
         </Container>
       </BrowserRouter>
-    </div>
+    </Provider>
   );
 };
 

@@ -5,9 +5,13 @@ import Button from 'react-bootstrap/button';
 import Image from 'react-bootstrap/image';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+
+import { addItem } from '../../actions/cartActions';
+
 import './ProductItem.css';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, addItem }) => {
   return (
     <Row className='border-bottom p-3'>
       <Col xs={12} sm={3} className='text-center'>
@@ -20,10 +24,10 @@ const ProductItem = ({ product }) => {
       </Col>
       <Col xs={12} sm={3} className='my-2'>
         <h4>${product.price}</h4>
-        <Button>ADD TO CART</Button>
+        <Button onClick={() => addItem(product)}>ADD TO CART</Button>
       </Col>
     </Row>
   );
 };
 
-export default ProductItem;
+export default connect(null, { addItem })(ProductItem);
