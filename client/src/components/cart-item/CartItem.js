@@ -5,44 +5,48 @@ import Col from 'react-bootstrap/col';
 import Button from 'react-bootstrap/button';
 import Image from 'react-bootstrap/image';
 
-import { removeItem } from '../../actions/cartActions';
+import { addItem, decrementItem, removeItem } from '../../actions/cartActions';
 
 import './CartItem.css';
 
-const CartItem = ({ product, removeItem }) => {
+const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
   return (
     <Fragment>
       <Row className='border-bottom py-3'>
         <Col sm={6} md={2}>
           <Image className='img-fluid img-size' src={product.img} />
         </Col>
-        <Col
-          sm={6}
-          md={5}
-          className='d-flex flex-column justify-content-center'
-        >
+        <Col sm={6} md={5} className='mt-4'>
           {product.title}
         </Col>
-        <Col
-          sm={6}
-          md={2}
-          className='d-flex flex-column justify-content-center'
-        >
-          <span>Qty: {product.qty}</span>
+        <Col xs={6} sm={6} md={4} lg={3} className='mt-4'>
           <span>
-            Subtotal: ${product.qty * product.price.replace(/,/g, '')}
+            <Button className='' onClick={() => decrementItem(product)}>
+              -
+            </Button>
+            <span className='mx-1'>Qty: {product.qty}</span>
+            <Button
+              className=''
+              onClick={() => {
+                addItem(product);
+              }}
+            >
+              +
+            </Button>
           </span>
+
+          <div className='mt-4'>
+            <h5>Subtotal: ${product.qty * product.price.replace(/,/g, '')}</h5>
+          </div>
         </Col>
-        <Col
-          sm={6}
-          md={3}
-          className='d-flex flex-column justify-content-center'
-        >
-          <Button onClick={() => removeItem(product)}>Remove</Button>
+        <Col xs={6} sm={6} md={1} className='mt-4'>
+          <Button className='btn-mini' onClick={() => removeItem(product)}>
+            X
+          </Button>
         </Col>
       </Row>
     </Fragment>
   );
 };
 
-export default connect(null, { removeItem })(CartItem);
+export default connect(null, { addItem, decrementItem, removeItem })(CartItem);
