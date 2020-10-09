@@ -18,7 +18,7 @@ const ProductItem = ({ product, addItem }) => {
         <Image className='img-fluid img-size' src={product.img} />
       </Col>
       <Col xs={12} sm={6} className='py-2'>
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/product/${product._id}`}>
           <h4>{product.title}</h4>
         </Link>
       </Col>
