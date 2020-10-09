@@ -12,7 +12,19 @@ mongoose.connect('mongodb://localhost/ecomm', {
 // load initial temp data into DB
 const Product = require('./models/product');
 const products = require('./data/products');
-Product.insertMany(products);
+Product.deleteMany({}, function (err) {
+  if (err) {
+    console.error('Failed to remove previous data');
+    return process.exit(1);
+  }
+});
+
+Product.insertMany(products, function (err) {
+  if (err) {
+    console.error('Failed to load initial data');
+    return process.exit(1);
+  }
+});
 
 // app setup
 app.use(express.json());
