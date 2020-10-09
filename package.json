@@ -1,0 +1,25 @@
+{
+  "name": "ecomm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "npm start --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxtng/ecommerce-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mxtng/ecommerce-application/issues"
+  },
+  "homepage": "https://github.com/mxtng/ecommerce-application#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
