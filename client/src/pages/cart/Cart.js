@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/container';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
+import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/button';
 import CartItem from '../../components/cart-item/CartItem';
 
@@ -15,17 +17,23 @@ const Cart = ({ cartItems, cartTotal }) => {
           <Col sm={9}>
             {cartItems &&
               cartItems.map((product) => (
-                <CartItem key={product.id} product={product} />
+                <CartItem key={product._id} product={product} />
               ))}
           </Col>
           <Col sm={3} className='my-3'>
-            <div>
-              <h3>Summary</h3>
-            </div>
-            <div>
-              <h4>Total: ${cartTotal}</h4>
-            </div>
-            <Button className='btn-block'>Checkout</Button>
+            <Card style={{ width: '18rem' }}>
+              <Card.Body>
+                <Card.Title className='border-bottom mb-4' as='h3'>
+                  Cart Summary
+                </Card.Title>
+                <Card.Subtitle>
+                  <h4>Total: ${cartTotal}</h4>
+                </Card.Subtitle>
+                <Button className='btn-block' as={Link} to='/checkout'>
+                  Checkout
+                </Button>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
       </Container>
@@ -36,8 +44,7 @@ const Cart = ({ cartItems, cartTotal }) => {
 const mapStateToProps = ({ cart }) => ({
   cartItems: cart.products,
   cartTotal: cart.products.reduce(
-    (total, sub) =>
-      total + sub.qty * sub.price.replace(/,/g, ''),
+    (total, sub) => total + sub.qty * sub.price.replace(/,/g, ''),
     0
   ),
 });

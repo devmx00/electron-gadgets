@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Button from 'react-bootstrap/button';
@@ -17,7 +18,7 @@ const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
           <Image className='img-fluid img-size' src={product.img} />
         </Col>
         <Col sm={6} md={5} className='mt-4'>
-          {product.title}
+          <Link to={`/product/${product._id}`}>{product.title}</Link>
         </Col>
         <Col xs={6} sm={6} md={4} lg={3} className='mt-4'>
           <span>

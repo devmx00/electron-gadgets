@@ -7,14 +7,14 @@ export default (state = INITIAL_STATE, action) => {
   switch (type) {
     case ADD_ITEM:
       const existingProduct = state.products.find(
-        (product) => product.id === payload.id
+        (product) => product._id === payload._id
       );
 
       if (existingProduct) {
         return {
           ...state,
           products: state.products.map((product) =>
-            product.id === payload.id
+            product._id === payload._id
               ? { ...product, qty: product.qty + 1 }
               : product
           ),
@@ -30,7 +30,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         products: state.products.map((product) =>
-          product.id === payload.id
+          product._id === payload._id
             ? product.qty === 1
               ? product
               : { ...product, qty: product.qty - 1 }
@@ -41,7 +41,7 @@ export default (state = INITIAL_STATE, action) => {
     case REMOVE_ITEM:
       return {
         ...state,
-        products: state.products.filter((product) => product.id !== payload.id),
+        products: state.products.filter((product) => product._id !== payload._id),
         totalItems: state.totalItems - payload.qty,
       };
     default:
