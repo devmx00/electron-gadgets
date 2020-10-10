@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Card from 'react-bootstrap/card';
@@ -76,7 +77,10 @@ const Register = () => {
                   Sign Up
                 </Button>
                 <Card.Text className='mt-2'>
-                  Already have an account? <Card.Link>Sign in here</Card.Link>
+                  Already have an account?{' '}
+                  <Card.Link as={Link} to='/login'>
+                    Sign in here
+                  </Card.Link>
                 </Card.Text>
               </form>
             </Card.Body>

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Card from 'react-bootstrap/card';
@@ -9,7 +10,7 @@ const Login = () => {
   return (
     <Fragment>
       <Row className='d-flex justify-content-center'>
-        <Col sm={12} md={6} lg={4} className="my-5">
+        <Col sm={12} md={6} lg={4} className='my-5'>
           <Card className='my-3'>
             <Card.Body>
               <Card.Title as='h2'>Sign In</Card.Title>
@@ -22,11 +23,14 @@ const Login = () => {
                   <Form.Label>Password</Form.Label>
                   <Form.Control type='password' placeholder='Password' />
                 </Form.Group>
-                <Button variant='info' type='submit'>
+                <Button variant='info' className='btn-block' type='submit'>
                   Sign In
                 </Button>
                 <Card.Text>
-                  Don't have an account? <Card.Link>Register here</Card.Link>
+                  Don't have an account?{' '}
+                  <Card.Link as={Link} to='/register'>
+                    Register here
+                  </Card.Link>
                 </Card.Text>
               </Form>
             </Card.Body>
