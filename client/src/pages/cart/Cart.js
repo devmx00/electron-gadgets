@@ -16,10 +16,19 @@ const Cart = ({ cartItems, cartTotal }) => {
       <Container>
         <Row>
           <Col sm={9}>
-            {cartItems &&
+            {cartItems.length > 0 ? (
               cartItems.map((product) => (
                 <CartItem key={product._id} product={product} />
-              ))}
+              ))
+            ) : (
+              <div className='h-100 text-center d-flex flex-column justify-content-center'>
+                <i
+                  className='fas fa-shopping-cart fa-3x mt-5 mb-2'
+                  style={{ color: 'lightgrey' }}
+                ></i>
+                <h5 style={{ color: 'lightgrey' }}>Cart is empty</h5>
+              </div>
+            )}
           </Col>
           <Col sm={3} className='my-3'>
             <Card style={{ width: '18rem' }}>
