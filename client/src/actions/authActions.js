@@ -16,3 +16,11 @@ export const userRegister = (formData, callback) => async (dispatch) => {
     return callback(err);
   }
 };
+
+export const userLogout = () => (dispatch) => {
+  dispatch({
+    type: AUTH_USER_LOGOUT,
+  });
+
+  localStorage.removeItem('token');
+};

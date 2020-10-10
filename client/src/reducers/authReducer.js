@@ -11,6 +11,8 @@ export default (state = INITIAL_STATE, action) => {
   switch (type) {
     case AUTH_USER_REGISTER:
       return { ...state, authenticated: payload };
+    case AUTH_USER_LOGOUT:
+      return { ...state, authenticated: false };
     default:
       return state;
   }

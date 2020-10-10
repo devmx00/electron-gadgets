@@ -1,9 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { userLogout } from '../actions/authActions';
 
 const Navigation = ({ totalItems }) => {
+  const authenticated = useSelector(({ auth }) => auth.authenticated);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Navbar bg='light' expand='lg'>
@@ -40,9 +44,20 @@ const Navigation = ({ totalItems }) => {
               <Nav.Link as={Link} to='/cart'>
                 Cart ({totalItems})
               </Nav.Link>
-              <Nav.Link as={Link} to='/login'>
-                Sign In
-              </Nav.Link>
+              {authenticated ? (
+                <Nav.Link
+                  as='div'
+                  className='nav-link'
+                  onClick={() => dispatch(userLogout())}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Sign Out
+                </Nav.Link>
+              ) : (
+                <Nav.Link as={Link} to='/login'>
+                  Sign In
+                </Nav.Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
