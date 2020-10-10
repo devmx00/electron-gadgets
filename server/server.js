@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const registerRoute = require('./routes/registerRoute');
+const loginRoute = require('./routes/loginRoute');
 const productsRoute = require('./routes/productsRoute');
 
 // mongoDB setup
@@ -32,6 +33,7 @@ app.use(express.json());
 
 // app routes
 app.use('/register', registerRoute);
+app.use('/login', loginRoute);
 app.use('/products', productsRoute);
 
 // port
