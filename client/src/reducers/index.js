@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import authReducer from './authReducer';
 import cartReducer from './cartReducer';
 import productsReducer from './productsReducer';
 
@@ -8,10 +9,11 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart'],
+  whitelist: ['auth','cart'],
 };
 
 const rootReducer = combineReducers({
+  auth: authReducer,
   cart: cartReducer,
   products: productsReducer,
 });

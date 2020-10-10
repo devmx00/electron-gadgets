@@ -1,20 +1,23 @@
 import React, { Fragment, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/button';
+import { userRegister } from '../../actions/authActions';
 
-const Register = () => {
-  const [formInput, setFormInput] = useState({
+const Register = ({ history }) => {
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
     email: '',
     password: '',
     password2: '',
   });
-  const { email, password, password2 } = formInput;
+  const { email, password, password2 } = formData;
 
   const handleChange = (e) => {
-    setFormInput({ ...formInput, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -26,7 +29,12 @@ const Register = () => {
       return console.log('Passwords do not match.');
     }
 
-    console.log(formInput);
+    dispatch(
+      userRegister(formData, function (err) {
+        if (err) return console.log('Registration failed.');
+        return history.push('/');
+      })
+    );
   };
 
   return (
