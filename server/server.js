@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const registerRoute = require('./routes/registerRoute');
 const productsRoute = require('./routes/productsRoute');
 
 // mongoDB setup
@@ -30,6 +31,7 @@ Product.insertMany(products, function (err) {
 app.use(express.json());
 
 // app routes
+app.use('/register', registerRoute);
 app.use('/products', productsRoute);
 
 // port
