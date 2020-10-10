@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/col';
 import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/button';
 import CartItem from '../../components/cart-item/CartItem';
+import { cartTotal } from '../../selectors/cartSelectors';
 
 const Cart = ({ cartItems, cartTotal }) => {
   return (
@@ -41,12 +42,9 @@ const Cart = ({ cartItems, cartTotal }) => {
   );
 };
 
-const mapStateToProps = ({ cart }) => ({
-  cartItems: cart.products,
-  cartTotal: cart.products.reduce(
-    (total, sub) => total + sub.qty * sub.price.replace(/,/g, ''),
-    0
-  ),
+const mapStateToProps = (state) => ({
+  cartItems: state.cart.products,
+  cartTotal: cartTotal(state),
 });
 
 export default connect(mapStateToProps)(Cart);
