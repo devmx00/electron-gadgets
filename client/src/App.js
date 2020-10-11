@@ -9,6 +9,7 @@ import { store, persistor } from './store';
 import Main from './pages/main/Main';
 import Latest from './pages/latest/Latest';
 import Products from './pages/products/Products';
+import Product from './pages/product/Product';
 import Consoles from './pages/consoles/Consoles';
 import Laptops from './pages/laptops/Laptops';
 import GraphicCards from './pages/graphic-cards/GraphicCards';
@@ -30,6 +31,7 @@ const App = () => {
             <Route path='/' exact component={Main} />
             <Route path='/latest' component={Latest} />
             <Route path='/products' component={Products} />
+            <Route path='/product/:productId' component={Product} />
             <Route path='/consoles' component={Consoles} />
             <Route path='/laptops' component={Laptops} />
             <Route path='/graphic-cards' component={GraphicCards} />
