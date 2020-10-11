@@ -16,6 +16,7 @@ import Accessories from './pages/accessories/Accessories';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import Checkout from './pages/checkout/Checkout';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Route path='/cart' component={Cart} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+            <Route path='/checkout' component={Checkout} />
           </Container>
         </PersistGate>
       </BrowserRouter>
