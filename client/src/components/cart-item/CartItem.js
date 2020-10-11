@@ -40,10 +40,14 @@ const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
             <h5>Subtotal: ${product.qty * product.price.replace(/,/g, '')}</h5>
           </div>
         </Col>
-        <Col xs={6} sm={6} md={1} className='mt-4'>
-          <Button className='btn-mini' onClick={() => removeItem(product)}>
+        <Col xs={6} sm={6} md={1} className='my-auto '>
+          <span
+            className='cart rm-icon'
+            alt="remove"
+            onClick={() => removeItem(product)}
+          >
             X
-          </Button>
+          </span>
         </Col>
       </Row>
     </Fragment>
