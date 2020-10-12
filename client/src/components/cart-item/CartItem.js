@@ -18,7 +18,7 @@ const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
           <Image className='img-fluid img-size' src={product.img} />
         </Col>
         <Col sm={6} md={5} className='mt-4'>
-          <Link to={`/product/${product._id}`}>{product.title}</Link>
+          <Link to={`/products/${product._id}`}>{product.title}</Link>
         </Col>
         <Col xs={6} sm={6} md={4} lg={3} className='mt-4'>
           <span>

@@ -28,8 +28,12 @@ const App = () => {
             <Route path='/' exact component={Main} />
             <Route path='/latest' component={Latest} />
             <Route path='/products' exact component={Products} />
-            <Route path='/products/category/:categoryId' component={ProductCategory} />
-            <Route path='/product/:productId' component={Product} />
+            <Route
+              path='/products/category/:categoryId'
+              exact
+              component={ProductCategory}
+            />
+            <Route path='/products/:productId' exact component={Product} />
             <Route path='/cart' component={Cart} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
