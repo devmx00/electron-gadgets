@@ -1,18 +1,24 @@
-// Product data field
-// =====================
-// id
-// img
-// title
-// about
-// price
-// category
-// stock
-// dateAdded
-// =====================
+const categories = [
+  {
+    _id: 1,
+    name: 'Consoles',
+  },
+  {
+    _id: 2,
+    name: 'Laptops',
+  },
+  {
+    _id: 3,
+    name: 'Graphic Cards',
+  },
+  {
+    _id: 4,
+    name: 'Accessories',
+  },
+];
 
 const products = [
   {
-    id: '1',
     img: '/img/airpods.jpeg',
     title: 'Apple Airpods',
     about: [
@@ -26,11 +32,10 @@ const products = [
       'The Wireless Charging Case delivers more than 24 hours of battery life',
     ],
     price: '239.00',
-    category: 'accessories',
     stock: 25,
+    category: 4,
   },
   {
-    id: '2',
     img: '/img/nvidia-rtx-3090.png',
     title: 'NVIDIA GEFORCE RTX 3090',
     about: [
@@ -39,11 +44,10 @@ const products = [
       'GPU Memory Size: 24 GB',
     ],
     price: '2,365.00',
-    category: 'graphic-cards',
     stock: 0,
+    category: 3,
   },
   {
-    id: '3',
     img: '/img/ps-5.png',
     title: 'PlayStation 5 DISC Edition',
     about: [
@@ -52,11 +56,10 @@ const products = [
       'Breathtaking Immersion - Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.',
     ],
     price: '729.00',
-    category: 'consoles',
     stock: 0,
+    category: 1,
   },
   {
-    id: '4',
     img: '/img/xps-13.png',
     title: 'Dell XPS 13',
     about: [
@@ -67,11 +70,10 @@ const products = [
       'A 2.25mm high quality HD webcam gives you the best camera experience.',
     ],
     price: '2,099.00',
-    category: 'laptops',
     stock: 5,
+    category: 1,
   },
   {
-    id: '5',
     img: '/img/razer-13.png',
     title: 'Razer Blade Stealth 13',
     about: [
@@ -82,11 +84,10 @@ const products = [
       'Complete connectivity: Includes Thunderbolt 3, USB-C, USB-A, Wireless AX, Windows Hello infrared camera, and dual-array mics.',
     ],
     price: '3,299.00',
-    category: 'laptops',
     stock: 3,
+    category: 2,
   },
   {
-    id: '6',
     img: '/img/gb-1650-4gb.png',
     title: 'GIGABYTE GEFORCE GTX 1650 4 GB GDDR5',
     about: [
@@ -95,11 +96,10 @@ const products = [
       'GPU Memory Size: 4 GB',
     ],
     price: '159.00',
-    category: 'graphic-cards',
     stock: 5,
+    category: 3,
   },
   {
-    id: '7',
     img: '/img/zotac-1650-tf.png',
     title: 'ZOTAC GAMING GEFORCE GTX 1650 SUPER 4GB TWIN FAN',
     about: [
@@ -108,11 +108,10 @@ const products = [
       'GPU Memory Size: 4 GB',
     ],
     price: '169.00',
-    category: 'graphic-cards',
     stock: 5,
+    category: 3,
   },
   {
-    id: '8',
     img: '/img/evga-1650-super.png',
     title: 'EVGA GEFORCE GTX 1650 SUPER SC ULTRA',
     about: [
@@ -121,11 +120,10 @@ const products = [
       'GPU Memory Size: 4 GB',
     ],
     price: '189.00',
-    category: 'graphic-cards',
     stock: 5,
+    category: 3,
   },
   {
-    id: '9',
     img: '/img/evga-1660-6gb.png',
     title: 'EVGA GEFORCE GTX 1660 6GB',
     about: [
@@ -134,9 +132,12 @@ const products = [
       'GPU Memory Size: 6 GB',
     ],
     price: '229.00',
-    category: 'graphic-cards',
     stock: 5,
+    category: 3,
   },
 ];
 
-module.exports = products;
+module.exports = {
+  categories,
+  products,
+};

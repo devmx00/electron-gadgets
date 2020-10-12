@@ -12,19 +12,36 @@ mongoose.connect('mongodb://localhost/ecomm', {
 });
 
 // load initial temp data into DB
+const Category = require('./models/category');
 const Product = require('./models/product');
-const products = require('./data/products');
+const { categories, products } = require('./data/data');
+
+Category.deleteMany({}, function (err) {
+  if (err) {
+    console.error('Failed to remove previous category data');
+    process.exit(1);
+  }
+});
+
+Category.insertMany(categories, function (err) {
+  if (err) {
+    console.error('Failed to load initial category data');
+    process.exit(1);
+  }
+});
+
+
 Product.deleteMany({}, function (err) {
   if (err) {
-    console.error('Failed to remove previous data');
-    return process.exit(1);
+    console.error('Failed to remove previous product data');
+    process.exit(1);
   }
 });
 
 Product.insertMany(products, function (err) {
   if (err) {
-    console.error('Failed to load initial data');
-    return process.exit(1);
+    console.error('Failed to load initial product data');
+    process.exit(1);
   }
 });
 
