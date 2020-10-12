@@ -10,10 +10,7 @@ import Main from './pages/main/Main';
 import Latest from './pages/latest/Latest';
 import Products from './pages/products/Products';
 import Product from './pages/product/Product';
-import Consoles from './pages/consoles/Consoles';
-import Laptops from './pages/laptops/Laptops';
-import GraphicCards from './pages/graphic-cards/GraphicCards';
-import Accessories from './pages/accessories/Accessories';
+import ProductCategory from './pages/category/ProductCategory';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
@@ -30,12 +27,9 @@ const App = () => {
           <Container>
             <Route path='/' exact component={Main} />
             <Route path='/latest' component={Latest} />
-            <Route path='/products' component={Products} />
+            <Route path='/products' exact component={Products} />
+            <Route path='/products/category/:categoryId' component={ProductCategory} />
             <Route path='/product/:productId' component={Product} />
-            <Route path='/consoles' component={Consoles} />
-            <Route path='/laptops' component={Laptops} />
-            <Route path='/graphic-cards' component={GraphicCards} />
-            <Route path='/accessories' component={Accessories} />
             <Route path='/cart' component={Cart} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />

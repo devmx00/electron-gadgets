@@ -26,16 +26,16 @@ const Navigation = ({ totalItems }) => {
                   All Products
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to='/consoles'>
+                <NavDropdown.Item as={Link} to='/products/category/1'>
                   Consoles
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/laptops'>
+                <NavDropdown.Item as={Link} to='/products/category/2'>
                   Laptops
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/graphic-cards'>
+                <NavDropdown.Item as={Link} to='/products/category/3'>
                   Graphic Cards
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/accessories'>
+                <NavDropdown.Item as={Link} to='/products/category/4'>
                   Accessories
                 </NavDropdown.Item>
               </NavDropdown>
