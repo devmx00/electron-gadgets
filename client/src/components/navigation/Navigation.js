@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { userLogout } from '../actions/authActions';
+import { userLogout } from '../../actions/authActions';
 
 const Navigation = ({ totalItems }) => {
   const authenticated = useSelector(({ auth }) => auth.authenticated);
@@ -18,9 +18,6 @@ const Navigation = ({ totalItems }) => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='mr-auto'>
-              <Nav.Link as={Link} to='/latest'>
-                Latest
-              </Nav.Link>
               <NavDropdown title='Products' id='basic-nav-dropdown'>
                 <NavDropdown.Item as={Link} to='/products'>
                   All Products
