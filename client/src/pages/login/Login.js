@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/button';
 import { userLogin } from '../../actions/authActions';
 
-const Login = ({ history }) => {
+const Login = (props) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: '',
@@ -27,7 +27,10 @@ const Login = ({ history }) => {
     dispatch(
       userLogin(formData, function (err) {
         if (err) return console.log('Login failed.');
-        return history.push('/');
+        if (props.location.state.previousPath === '/cart') {
+          return props.history.push('/checkout');
+        }
+        return props.history.push('/');
       })
     );
   };
@@ -38,7 +41,7 @@ const Login = ({ history }) => {
         <Col sm={12} md={6} lg={4} className='my-5'>
           <Card className='my-3'>
             <Card.Body>
-              <Card.Title as='h2'>Sign Up</Card.Title>
+              <Card.Title as='h2'>Sign In</Card.Title>
               <form onSubmit={handleSubmit}>
                 <div className='form-group'>
                   <label htmlFor='email'>Email address</label>

@@ -9,7 +9,8 @@ import Button from 'react-bootstrap/button';
 import CartItem from '../../components/cart-item/CartItem';
 import { cartTotal } from '../../selectors/cartSelectors';
 
-const Cart = () => {
+const Cart = (props) => {
+  const authenticated = useSelector(({ auth }) => auth.authenticated);
   const cartItems = useSelector(({ cart }) => cart.products);
   const cartSum = useSelector(cartTotal);
 
@@ -42,14 +43,42 @@ const Cart = () => {
                 <Card.Subtitle>
                   <h4>Total: ${cartSum}</h4>
                 </Card.Subtitle>
-                <LinkContainer to='/checkout'>
-                  <Button
-                    className='btn-block'
-                    disabled={!(!!cartItems && cartItems.length > 0)}
-                  >
-                    Checkout
-                  </Button>
-                </LinkContainer>
+                {!!authenticated ? (
+                  <LinkContainer to='/checkout'>
+                    <Button
+                      className='btn-block'
+                      disabled={!(!!cartItems && cartItems.length > 0)}
+                    >
+                      Checkout
+                    </Button>
+                  </LinkContainer>
+                ) : (
+                  <Fragment>
+                    <LinkContainer to='/checkout'>
+                      <Button
+                        className='btn-block'
+                        disabled={!(!!cartItems && cartItems.length > 0)}
+                      >
+                        Guest Checkout
+                      </Button>
+                    </LinkContainer>
+                    <h5 className='my-1 text-center'>Or</h5>
+
+                    <LinkContainer
+                      to={{
+                        pathname: '/login',
+                        state: { previousPath: props.location.pathname },
+                      }}
+                    >
+                      <Button
+                        className='btn-block'
+                        disabled={!(!!cartItems && cartItems.length > 0)}
+                      >
+                        Sign In & Checkout
+                      </Button>
+                    </LinkContainer>
+                  </Fragment>
+                )}
               </Card.Body>
             </Card>
           </Col>
