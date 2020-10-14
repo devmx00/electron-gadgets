@@ -14,7 +14,6 @@ import Cart from './pages/cart/Cart';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Checkout from './pages/checkout/Checkout';
-import './App.css';
 
 const App = () => {
   return (
