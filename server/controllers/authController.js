@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 // auth controller
 module.exports = (app) => {
@@ -27,7 +28,7 @@ module.exports = (app) => {
 
   // route: /login
   // method: POST
-  // description: user login 
+  // description: user login
   app.post('/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -39,7 +40,7 @@ module.exports = (app) => {
         if (err) return res.status(400).send('Login failed.');
         if (!isVerified) return res.status(422).send('Invalid Credentials.');
 
-        jwt.sign(user.id, 'secretKey', function (err, token) {
+        jwt.sign(user.id, JWT_SECRET_KEY, function (err, token) {
           if (err) return res.status(400).send('Login failed.');
           return res.json({ token });
         });

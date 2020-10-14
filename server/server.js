@@ -1,3 +1,9 @@
+// import env variables
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+// import modules
 const express = require('express');
 const app = express();
 
@@ -13,5 +19,5 @@ require('./controllers/productsController')(app);
 require('./controllers/paymentController')(app);
 
 // port
-const PORT = 3001;
-app.listen(PORT, console.log(`Server running on ${PORT}...`));
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Server running on ${PORT}..`));
