@@ -1,4 +1,9 @@
-import { ADD_ITEM, DECREMENT_ITEM, REMOVE_ITEM } from '../actions/types';
+import {
+  ADD_ITEM,
+  DECREMENT_ITEM,
+  REMOVE_ITEM,
+  CLEAR_CART,
+} from '../actions/types';
 
 const INITIAL_STATE = { products: [], totalItems: 0 };
 
@@ -41,8 +46,16 @@ export default (state = INITIAL_STATE, action) => {
     case REMOVE_ITEM:
       return {
         ...state,
-        products: state.products.filter((product) => product._id !== payload._id),
+        products: state.products.filter(
+          (product) => product._id !== payload._id
+        ),
         totalItems: state.totalItems - payload.qty,
+      };
+    case CLEAR_CART:
+      return {
+        ...state,
+        products: [],
+        totalItems: 0,
       };
     default:
       return state;

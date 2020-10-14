@@ -6,10 +6,14 @@ import Card from 'react-bootstrap/card';
 import Form from 'react-bootstrap/form';
 import Button from 'react-bootstrap/button';
 import CheckoutItem from '../../components/checkout-item/CheckoutItem';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearCart } from '../../actions/cartActions';
 import { cartTotal } from '../../selectors/cartSelectors';
 
+import StripePayment from '../../components/stripe-payment/StripePayment';
+
 const Checkout = () => {
+  const dispatch = useDispatch();
   const products = useSelector(({ cart }) => cart.products);
   const checkoutQty = useSelector(({ cart }) => cart.totalItems);
   const checkoutTotal = useSelector(cartTotal);
@@ -29,39 +33,39 @@ const Checkout = () => {
                   ))
                 : ''}
             </Col>
-            <Col sm={4} className='mt-4'>
-              <h5>Total Items: {checkoutQty}</h5>
-              <h4>Total: ${checkoutTotal}</h4>
-
-              <div className='mt-2'>
+            <Col sm={12} className='mt-4'>
+              <Row>
+                <Col sm={6}>
+                  <h5>Total Items: {checkoutQty}</h5>
+                  <h4>Total: ${checkoutTotal}</h4>
+                </Col>
+                <Col sm={6} className='text-center'>
+                  <Button className='mx-1' as={Link} to='/cart'>
+                    Edit Checkout
+                  </Button>
+                  <Button
+                    onClick={() => dispatch(clearCart())}
+                    className='mx-1'
+                    as={Link}
+                    to='/'
+                  >
+                    Cancel Checkout
+                  </Button>
+                </Col>
+              </Row>
+            </Col>
+            <Col sm={6}>
+              <div className='mt-4'>
                 <h5>Select Payment Method:</h5>
                 <Form>
                   <Form.Check
                     type='radio'
                     id='default-radio'
-                    label='Credit/Debit Card'
-                    disabled
-                  />
-                  <Form.Check
-                    type='radio'
-                    id='default-radio'
-                    label='PayPal'
-                    disabled
-                  />
-                  <Form.Check
-                    type='radio'
-                    id='default-radio'
                     label='Stripe'
-                    disabled
+                    defaultChecked
                   />
                 </Form>
-                <div className='mt-2'>
-                  <Button className='mx-1' as={Link} to='/cart'>
-                    Edit Order
-                  </Button>
-
-                  <Button className='mx-1'>Pay Now</Button>
-                </div>
+                <StripePayment />
               </div>
             </Col>
           </Card.Body>
