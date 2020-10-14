@@ -10,6 +10,7 @@ app.use(express.json());
 // app routes
 require('./controllers/authController')(app);
 require('./controllers/productsController')(app);
+require('./controllers/paymentController')(app);
 
 // port
 const PORT = 3001;
