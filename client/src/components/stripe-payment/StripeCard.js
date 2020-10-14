@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import Button from 'react-bootstrap/button';
+import { cartTotal } from '../../selectors/cartSelectors';
+import './StripeCard.css';
 
 const StripeCard = () => {
+  const checkoutTotal = useSelector(cartTotal);
+
+  const [isProcessing, setProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -15,31 +22,40 @@ const StripeCard = () => {
       return;
     }
 
-    console.log('success');
+    setProcessing(true);
 
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
-    // each type of element.
-    // const cardElement = elements.getElement(CardElement);
+    const { data } = await axios.post('/payment', {
+      amount: checkoutTotal * 100,
+    });
 
-    // Use your card Element with other Stripe.js APIs
-    // const { error, paymentMethod } = await stripe.createPaymentMethod({
-    //   type: 'card',
-    //   card: cardElement,
-    // });
+    const cardElement = elements.getElement(CardElement);
 
-    // if (error) {
-    //   console.log('[error]', error);
-    // } else {
-    //   console.log('[PaymentMethod]', paymentMethod);
-    // }
+    const paymentMethodReq = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+    });
+
+    const result = await stripe.confirmCardPayment(data.client_secret, {
+      payment_method: paymentMethodReq.paymentMethod.id,
+    });
+
+    setProcessing(false);
+
+    if (result.error) {
+      console.log(result.error.message);
+    } else {
+      // The payment has been processed!
+      if (result.paymentIntent.status === 'succeeded') {
+        console.log('success');
+      }
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement options={{ value: { postalCode: '12345' } }} />
-      <Button className='my-2' type='submit' disabled={!stripe}>
-        Pay Now
+      <CardElement options={{ hidePostalCode: true }} />
+      <Button className='my-2' type='submit' disabled={isProcessing || !stripe}>
+        {isProcessing ? 'Processing...' : `Pay Now (Total: $${checkoutTotal})`}
       </Button>
     </form>
   );
