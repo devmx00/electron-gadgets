@@ -22,10 +22,18 @@ const ProductItem = ({ product }) => {
       </Col>
       <Col xs={12} sm={3} className='my-2'>
         <h4>${product.price}</h4>
-        <Button onClick={() => dispatch(addItem(product))}>ADD TO CART</Button>
+        {!!product && product.stock > 0 ? (
+          <Button onClick={() => dispatch(addItem(product))}>
+            ADD TO CART
+          </Button>
+        ) : (
+          <Button onClick={() => dispatch(addItem(product))} disabled>
+            UNAVAILABLE
+          </Button>
+        )}
       </Col>
     </Row>
   );
-};  
+};
 
 export default ProductItem;

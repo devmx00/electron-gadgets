@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Image from 'react-bootstrap/image';
 import Card from 'react-bootstrap/card';
+import Button from 'react-bootstrap/button';
 import Tab from 'react-bootstrap/tab';
 import Tabs from 'react-bootstrap/tabs';
 import { addItem } from '../../actions/cartActions';
@@ -31,12 +32,15 @@ const ProductDetail = ({ product }) => {
             </ul>
             <div className='ml-3 mt-5'>
               <h4>${product.price}</h4>
-              <button
-                className='btn btn-primary'
-                onClick={() => dispatch(addItem(product))}
-              >
-                ADD TO CART
-              </button>
+              {!!product && product.stock > 0 ? (
+                <Button onClick={() => dispatch(addItem(product))}>
+                  ADD TO CART
+                </Button>
+              ) : (
+                <Button onClick={() => dispatch(addItem(product))} disabled>
+                  UNAVAILABLE
+                </Button>
+              )}
             </div>
           </Col>
           <Col sm={12} className='px-5 my-5'>
