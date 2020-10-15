@@ -2,3 +2,9 @@
   object-fit: scale-down;
   height: 8rem;
 }
+
+.card {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+}
