@@ -4,13 +4,11 @@
 }
 
 .cart.rm-icon {
-  font-weight: bold;
   cursor: pointer;
-  color: #d9230f;
-  font-size: 1.1rem;
+  color: #f10909;
 }
 
 .cart.rm-icon:hover {
   text-decoration: underline;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
 }

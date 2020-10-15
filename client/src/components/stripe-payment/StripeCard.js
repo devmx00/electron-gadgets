@@ -54,7 +54,7 @@ const StripeCard = () => {
   return (
     <form onSubmit={handleSubmit}>
       <CardElement options={{ hidePostalCode: true }} />
-      <Button className='my-2' type='submit' disabled={isProcessing || !stripe}>
+      <Button className='my-3' type='submit' disabled={isProcessing || !stripe}>
         {isProcessing ? 'Processing...' : `Pay Now (Total: $${checkoutTotal})`}
       </Button>
     </form>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
@@ -6,11 +7,9 @@ import Card from 'react-bootstrap/card';
 import Form from 'react-bootstrap/form';
 import Button from 'react-bootstrap/button';
 import CheckoutItem from '../../components/checkout-item/CheckoutItem';
-import { useSelector, useDispatch } from 'react-redux';
+import StripePayment from '../../components/stripe-payment/StripePayment';
 import { clearCart } from '../../actions/cartActions';
 import { cartTotal } from '../../selectors/cartSelectors';
-
-import StripePayment from '../../components/stripe-payment/StripePayment';
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -61,7 +60,7 @@ const Checkout = () => {
                   <Form.Check
                     type='radio'
                     id='default-radio'
-                    label='Stripe'
+                    label='Credit/Debit Card'
                     defaultChecked
                   />
                 </Form>

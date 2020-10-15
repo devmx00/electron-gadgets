@@ -1,0 +1,53 @@
+$theme-colors: (
+  'primary': #1ec6ad,
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn {
+  font-size: 0.8rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 0.95rem;
+}
+
+a,
+h6,
+p,
+span,
+label {
+  font-size: 0.8rem;
+}
+
+a {
+  color: #000000;
+}

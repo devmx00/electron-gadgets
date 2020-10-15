@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/card';
 import Tab from 'react-bootstrap/tab';
 import Tabs from 'react-bootstrap/tabs';
 import { addItem } from '../../actions/cartActions';
-
 import './ProductDetail.css';
 
 const ProductDetail = ({ product }) => {
@@ -20,18 +19,18 @@ const ProductDetail = ({ product }) => {
             <Image src={product.img} className=' img-fluid img-size' />
           </Col>
           <Col sm={12} md={6} className=''>
-            <h2 className='my-3 pt-3 ml-4'>{product.title}</h2>
+            <h3 className='my-3 pt-3 ml-4'>{product.title}</h3>
             <ul>
               {!!product && product !== 'undefined'
                 ? product.about.map((about, idx) => (
-                    <li key={idx} className='p-2'>
-                      {about}
+                    <li key={idx}>
+                      <p>{about}</p>
                     </li>
                   ))
                 : ''}
             </ul>
             <div className='ml-3 mt-5'>
-              <h3>${product.price}</h3>
+              <h4>${product.price}</h4>
               <button
                 className='btn btn-primary'
                 onClick={() => dispatch(addItem(product))}
@@ -49,18 +48,6 @@ const ProductDetail = ({ product }) => {
               <Tab eventKey='home' title='Description'>
                 <hr />
                 <p>{product.description}</p>
-              </Tab>
-              <Tab eventKey='profile' title='Specifications'>
-                <hr />
-                <ul>
-                  {!!product && product !== 'undefined'
-                    ? product.specifications.map((spec, idx) => (
-                        <li key={idx} className='p-2'>
-                          {spec}
-                        </li>
-                      ))
-                    : ''}
-                </ul>
               </Tab>
             </Tabs>
           </Col>

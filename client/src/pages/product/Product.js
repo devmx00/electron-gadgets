@@ -19,7 +19,9 @@ const Product = (props) => {
       {loading ? (
         <Spinner loaderMsg='Loading...' />
       ) : (
+        <div className='m-5'>
         <ProductDetail product={product} />
+        </div>
       )}
     </div>
   );
