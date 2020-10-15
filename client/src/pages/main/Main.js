@@ -24,15 +24,6 @@ const Main = () => {
       <h3>Shop Categories</h3>
       <hr />
       <Row>
-        {/* <Col sm={6} md={3} className='my-4'>
-          <Card className='p-2'>
-            <Image src='/img/ps-5.png' className='img-fluid img-size' />
-            <Button as={Link} to='/products/category/1'>
-              Consoles
-            </Button>
-          </Card>
-        </Col> */}
-
         <Col sm={6} lg={3}>
           <Link to='/products/category/1'>
             <Card className='bg-dark text-white m-2 p-2'>
@@ -53,7 +44,9 @@ const Main = () => {
                 alt='Card image'
                 className='img-fluid img-size'
               />
-              <Card.Title className='text-center mt-2'>Laptops</Card.Title>
+              <Card.Title className='text-center mt-2 category-btn'>
+                Laptops
+              </Card.Title>
             </Card>
           </Link>
         </Col>
@@ -75,42 +68,14 @@ const Main = () => {
           <Link to='/products/category/4'>
             <Card className='bg-dark text-white m-2 p-2'>
               <Card.Img
-                src='/img/razer-13.png'
+                src='/img/sony-xm3b.png'
                 alt='Card image'
                 className='img-fluid img-size'
               />
-              <Card.Title className='text-center mt-2'>Consoles</Card.Title>
+              <Card.Title className='text-center mt-2'>Accessories</Card.Title>
             </Card>
           </Link>
         </Col>
-
-        {/* <Col sm={6} md={3} className='my-4'>
-          <Card className='p-2'>
-            <Image src='/img/xps-13.png' className='img-fluid img-size' />
-            <Button as={Link} to='/products/category/2'>
-              Laptops
-            </Button>
-          </Card>
-        </Col>
-        <Col sm={6} md={3} className='my-4'>
-          <Card className='p-2'>
-            <Image
-              src='/img/nvidia-rtx-3090.png'
-              className='img-fluid img-size'
-            />
-            <Button as={Link} to='products/category/3'>
-              Graphic Cards
-            </Button>
-          </Card>
-        </Col>
-        <Col sm={6} md={3} className='my-4'>
-          <Card className='p-2'>
-            <Image src='/img/airpods.jpeg' className='img-fluid img-size' />
-            <Button as={Link} to='products/category/4'>
-              Accessories
-            </Button>
-          </Card>
-        </Col> */}
       </Row>
     </div>
   );
