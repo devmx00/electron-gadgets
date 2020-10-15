@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/button';
-import CartItem from '../../components/cart-item/CartItem';
+import CartItem from '../../components/cartItem/CartItem';
 import { cartTotal } from '../../selectors/cartSelectors';
 
 const Cart = (props) => {

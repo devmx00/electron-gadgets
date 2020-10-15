@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import './CheckoutItem.css';
@@ -25,4 +24,4 @@ const CheckoutItem = ({ product }) => {
   );
 };
 
-export default connect(null)(CheckoutItem);
+export default CheckoutItem;

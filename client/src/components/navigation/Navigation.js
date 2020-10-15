@@ -1,11 +1,12 @@
 import React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { userLogout } from '../../actions/authActions';
 
-const Navigation = ({ totalItems }) => {
+const Navigation = () => {
   const authenticated = useSelector(({ auth }) => auth.authenticated);
+  const totalItems = useSelector(({ cart }) => cart.totalItems);
   const dispatch = useDispatch();
 
   return (
@@ -63,8 +64,4 @@ const Navigation = ({ totalItems }) => {
   );
 };
 
-const mapStateToProps = ({ cart }) => ({
-  totalItems: cart.totalItems,
-});
-
-export default connect(mapStateToProps)(Navigation);
+export default Navigation;

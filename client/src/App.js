@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/container';
 import { store, persistor } from './store';
 import Navigation from './components/navigation/Navigation';
 import Main from './pages/main/Main';
-import Products from './pages/products/Products';
+import ProductList from './pages/productList/ProductList';
 import Product from './pages/product/Product';
 import ProductCategory from './pages/category/ProductCategory';
 import Cart from './pages/cart/Cart';
@@ -23,7 +23,7 @@ const App = () => {
           <Navigation />
           <Container>
             <Route path='/' exact component={Main} />
-            <Route path='/products' exact component={Products} />
+            <Route path='/products' exact component={ProductList} />
             <Route
               path='/products/category/:categoryId'
               exact

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ProductDetail from '../../components/product-detail/ProductDetail';
+import ProductDetail from '../../components/productDetail/ProductDetail';
 import Spinner from '../../components/loader/Loader';
 import { itemRequest } from '../../actions/productsActions';
 

@@ -1,13 +1,14 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Card from 'react-bootstrap/card';
 import Button from 'react-bootstrap/button';
 import { userRegister } from '../../actions/authActions';
 
-const Register = ({ history }) => {
+const Register = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: '',

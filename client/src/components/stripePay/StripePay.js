@@ -2,10 +2,9 @@ import React from 'react';
 import Alert from 'react-bootstrap/alert';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import StripeCard from './StripeCard';
+import StripeCard from './subcomponents/StripeCard';
 
-const stripe_pk = process.env.REACT_APP_STRIPE_PK;
-const stripePromise = loadStripe(stripe_pk);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const StripePayment = () => {
   return (

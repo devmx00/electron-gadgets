@@ -6,8 +6,8 @@ import Col from 'react-bootstrap/col';
 import Card from 'react-bootstrap/card';
 import Form from 'react-bootstrap/form';
 import Button from 'react-bootstrap/button';
-import CheckoutItem from '../../components/checkout-item/CheckoutItem';
-import StripePayment from '../../components/stripe-payment/StripePayment';
+import CheckoutItem from '../../components/checkoutItem/CheckoutItem';
+import StripePayment from '../../components/stripePay/StripePay';
 import { clearCart } from '../../actions/cartActions';
 import { cartTotal } from '../../selectors/cartSelectors';
 

@@ -1,16 +1,15 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/row';
 import Col from 'react-bootstrap/col';
 import Button from 'react-bootstrap/button';
 import Image from 'react-bootstrap/image';
-
 import { addItem, decrementItem, removeItem } from '../../actions/cartActions';
-
 import './CartItem.css';
 
-const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
+const CartItem = ({ product }) => {
+  const dispatch = useDispatch();
   return (
     <Fragment>
       <Row className='border-bottom py-3'>
@@ -24,14 +23,17 @@ const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
         </Col>
         <Col xs={6} sm={6} md={4} lg={3} className='mt-4'>
           <span>
-            <Button className='' onClick={() => decrementItem(product)}>
+            <Button
+              className=''
+              onClick={() => dispatch(decrementItem(product))}
+            >
               -
             </Button>
             <span className='mx-1'>Qty: {product.qty}</span>
             <Button
               className=''
               onClick={() => {
-                addItem(product);
+                dispatch(addItem(product));
               }}
             >
               +
@@ -46,7 +48,7 @@ const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
           <span
             className='cart rm-icon'
             alt='remove'
-            onClick={() => removeItem(product)}
+            onClick={() => dispatch(removeItem(product))}
           >
             X
           </span>
@@ -56,4 +58,4 @@ const CartItem = ({ product, addItem, decrementItem, removeItem }) => {
   );
 };
 
-export default connect(null, { addItem, decrementItem, removeItem })(CartItem);
+export default CartItem;
