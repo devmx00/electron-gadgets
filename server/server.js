@@ -14,9 +14,9 @@ require('./models')();
 app.use(express.json());
 
 // app routes
-require('./controllers/authController')(app);
-require('./controllers/productsController')(app);
-require('./controllers/paymentController')(app);
+require('./routes/authRoutes')(app);
+require('./routes/productsRoutes')(app);
+require('./routes/paymentRoutes')(app);
 
 // port
 const PORT = process.env.PORT || 3001;
