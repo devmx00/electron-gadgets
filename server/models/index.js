@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+const Category = require('./category');
+const Product = require('./product');
+const categories = require('../data/categories');
+const products = require('../data/products');
 
 module.exports = () => {
   // mongoDB setup
@@ -7,11 +11,7 @@ module.exports = () => {
     useUnifiedTopology: true,
   });
 
-  // load initial temp data into DB
-  const Category = require('./category');
-  const Product = require('./product');
-  const { categories, products } = require('../data/data');
-
+  // seed data into DB
   Category.deleteMany({}, function (err) {
     if (err) {
       console.error('Failed to remove previous category data');
@@ -19,16 +19,16 @@ module.exports = () => {
     }
   });
 
-  Category.insertMany(categories, function (err) {
+  Product.deleteMany({}, function (err) {
     if (err) {
-      console.error('Failed to load initial category data');
+      console.error('Failed to remove previous product data');
       process.exit(1);
     }
   });
 
-  Product.deleteMany({}, function (err) {
+  Category.insertMany(categories, function (err) {
     if (err) {
-      console.error('Failed to remove previous product data');
+      console.error('Failed to load initial category data');
       process.exit(1);
     }
   });

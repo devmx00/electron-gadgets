@@ -1,22 +1,3 @@
-const categories = [
-  {
-    _id: 1,
-    name: 'Consoles',
-  },
-  {
-    _id: 2,
-    name: 'Laptops',
-  },
-  {
-    _id: 3,
-    name: 'Graphic Cards',
-  },
-  {
-    _id: 4,
-    name: 'Accessories',
-  },
-];
-
 const products = [
   {
     img: '/img/airpods.jpeg',
@@ -216,7 +197,4 @@ const products = [
   },
 ];
 
-module.exports = {
-  categories,
-  products,
-};
+module.exports = products;
