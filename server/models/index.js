@@ -3,10 +3,11 @@ const Category = require('./category');
 const Product = require('./product');
 const categories = require('../data/categories');
 const products = require('../data/products');
+const mongoDB_URI = process.env.MONGODB_URI || 'mongodb://localhost/electron';
 
 module.exports = () => {
   // mongoDB setup
-  mongoose.connect('mongodb://localhost/ecomm', {
+  mongoose.connect(mongoDB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
