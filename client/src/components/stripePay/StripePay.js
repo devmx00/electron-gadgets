@@ -1,5 +1,5 @@
 import React from 'react';
-import Alert from 'react-bootstrap/alert';
+import { Alert } from 'react-bootstrap';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import StripeCard from './subcomponents/StripeCard';

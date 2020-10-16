@@ -1,10 +1,7 @@
 import React, { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
-import Button from 'react-bootstrap/button';
-import Image from 'react-bootstrap/image';
+import { Row, Col, Button, Image } from 'react-bootstrap';
 import { addItem, decrementItem, removeItem } from '../../actions/cartActions';
 import './CartItem.css';
 

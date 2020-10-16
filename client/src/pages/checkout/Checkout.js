@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
-import Card from 'react-bootstrap/card';
-import Form from 'react-bootstrap/form';
-import Button from 'react-bootstrap/button';
+import {Row, Col, Card, Form, Button } from 'react-bootstrap';
 import CheckoutItem from '../../components/checkoutItem/CheckoutItem';
 import StripePayment from '../../components/stripePay/StripePay';
 import { clearCart } from '../../actions/cartActions';

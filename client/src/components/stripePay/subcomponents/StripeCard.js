@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import Button from 'react-bootstrap/button';
+import { Button } from 'react-bootstrap';
 import Modal from '../../modal/Modal';
 import { cartTotal } from '../../../selectors/cartSelectors';
 import { clearCart } from '../../../actions/cartActions';

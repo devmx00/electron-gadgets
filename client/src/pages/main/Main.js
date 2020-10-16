@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
-import Image from 'react-bootstrap/image';
-import Jumbotron from 'react-bootstrap/jumbotron';
-import Card from 'react-bootstrap/card';
-import Button from 'react-bootstrap/button';
+import { Row, Col, Image, Jumbotron, Card, Button } from 'react-bootstrap';
 import './Main.css';
 
 const Main = () => {

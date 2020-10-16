@@ -1,10 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
-import Card from 'react-bootstrap/card';
-import Button from 'react-bootstrap/button';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import { userLogin } from '../../actions/authActions';
 
 const Login = (props) => {

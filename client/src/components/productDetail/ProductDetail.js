@@ -1,12 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
-import Image from 'react-bootstrap/image';
-import Card from 'react-bootstrap/card';
-import Button from 'react-bootstrap/button';
-import Tab from 'react-bootstrap/tab';
-import Tabs from 'react-bootstrap/tabs';
+import { Row, Col, Image, Card, Button, Tab, Tabs } from 'react-bootstrap';
 import { addItem } from '../../actions/cartActions';
 import './ProductDetail.css';
 

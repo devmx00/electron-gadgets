@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-import Container from 'react-bootstrap/container';
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
-import Card from 'react-bootstrap/card';
-import Button from 'react-bootstrap/button';
+import {Container, Row, Col, Card, Button} from 'react-bootstrap';
 import CartItem from '../../components/cartItem/CartItem';
 import { cartTotal } from '../../selectors/cartSelectors';
 

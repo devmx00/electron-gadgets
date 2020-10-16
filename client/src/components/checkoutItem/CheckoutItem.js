@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
+import { Row, Col } from 'react-bootstrap';
 import './CheckoutItem.css';
 
 const CheckoutItem = ({ product }) => {
