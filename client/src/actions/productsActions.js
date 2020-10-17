@@ -14,7 +14,7 @@ import {
 export const productsRequest = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCTS_REQUEST });
-    const { data } = await axios.get('/products');
+    const { data } = await axios.get('/api/products');
     return dispatch({
       type: PRODUCTS_SUCCESS,
       payload: data,
@@ -30,7 +30,7 @@ export const productsRequest = () => async (dispatch) => {
 export const categoryRequest = (categoryId) => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_REQUEST });
-    const { data } = await axios.get(`/products/category/${categoryId}`);
+    const { data } = await axios.get(`/api/products/category/${categoryId}`);
     return dispatch({
       type: CATEGORY_SUCCESS,
       payload: data,
@@ -46,7 +46,7 @@ export const categoryRequest = (categoryId) => async (dispatch) => {
 export const itemRequest = (productId) => async (dispatch) => {
   try {
     dispatch({ type: ITEM_REQUEST });
-    const { data } = await axios.get(`/products/${productId}`);
+    const { data } = await axios.get(`/api/products/${productId}`);
     return dispatch({
       type: ITEM_SUCCESS,
       payload: data,

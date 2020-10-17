@@ -32,7 +32,7 @@ const StripeCard = () => {
         card: cardElement,
       });
 
-      const { data } = await axios.post('/payment', {
+      const { data } = await axios.post('/api/payment', {
         amount: checkoutTotal * 100,
       });
 

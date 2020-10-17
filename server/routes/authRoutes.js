@@ -7,7 +7,7 @@ module.exports = (app) => {
   // route: /register
   // method: POST
   // description: user registration
-  app.post('/register', (req, res) => {
+  app.post('/api/register', (req, res) => {
     const { email, password } = req.body;
 
     User.findOne({ email }, function (err, user) {
@@ -29,7 +29,7 @@ module.exports = (app) => {
   // route: /login
   // method: POST
   // description: user login
-  app.post('/login', (req, res) => {
+  app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
 
     User.findOne({ email }, function (err, user) {

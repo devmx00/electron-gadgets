@@ -3,7 +3,7 @@ import { AUTH_USER_REGISTER, AUTH_USER_LOGIN, AUTH_USER_LOGOUT } from './types';
 
 export const userRegister = (formData, callback) => async (dispatch) => {
   try {
-    const { data } = await axios.post('/register', formData);
+    const { data } = await axios.post('/api/register', formData);
 
     dispatch({
       type: AUTH_USER_REGISTER,
@@ -19,7 +19,7 @@ export const userRegister = (formData, callback) => async (dispatch) => {
 
 export const userLogin = (formData, callback) => async (dispatch) => {
   try {
-    const { data } = await axios.post('/login', formData);
+    const { data } = await axios.post('/api/login', formData);
 
     dispatch({
       type: AUTH_USER_LOGIN,
