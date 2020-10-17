@@ -2,6 +2,6 @@
 An e-commerce store developed on the MERN stack. \
 Visit: [Store](https://electrongadgets.herokuapp.com/)
 
-#### Snapshots:
+#### Snapshot
 
 ![Homepage](/assets/homepage.png)
